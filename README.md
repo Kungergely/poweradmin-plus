@@ -1,3 +1,3 @@
-# Poweradmin - a web-based control panel for PowerDNS.
+# Poweradmin-plus - a fork of the web-based control panel for PowerDNS.
 
-[Poweradmin](http://www.poweradmin.org/) is a friendly web-based DNS administration tool for Bert Hubert's PowerDNS server. The interface has full support for most of the features of PowerDNS. It has full support for all zone types (master,  native and  slave), for  supermasters for automatic provisioning of slave zones, full support for IPv6 and comes with multi-language support.
+Poweradmin plus will one day be a modern web-based DNS administration tool for Bert Hubert's PowerDNS server. Right now it's just a fresh fork of the Poweradmin tool whose development has seemingly stalled.
