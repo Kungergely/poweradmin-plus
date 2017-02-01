@@ -120,12 +120,9 @@ function LDAPAuthenticate() {
         }
 
         $attributes = array($ldap_user_attribute, 'dn');
-//        $filter = "(" . $ldap_user_attribute . "=" . $_SESSION["userlogin"] . ")";
-//        $filter = "(&(objectClass=person)(" . $ldap_user_attribute . "=" . $_SESSION["userlogin"] . ")(memberof=CN=PowerAdmin,OU=Groups,OU=Qloud,DC=test,DC=ixn,DC=local))";
-	$filter = "(&(objectClass=person)(" . $ldap_user_attribute . "=" . $_SESSION["userlogin"] . ")(memberof=".$ldap_group_attribute."))";
+	if (isset($ldap_group_attribute)&&$ldap_group_attribute!="") $filter = "(&(objectClass=person)(" . $ldap_user_attribute . "=" . $_SESSION["userlogin"] . ")(memberof=".$ldap_group_attribute."))";
+	else $filter = "(" . $ldap_user_attribute . "=" . $_SESSION["userlogin"] . ")";
         $ldapsearch = ldap_search($ldapconn, $ldap_basedn, $filter, $attributes);
-//	echo $ldap_basedn." ".$filter." ";
-//	print_r($attributes);
         if (!$ldapsearch) {
             if (isset($_POST["authenticate"]) ) 
                 log_error(sprintf('Failed LDAP authentication attempt from [%s] Reason: ldap_search failed', $_SERVER['REMOTE_ADDR']));

@@ -69,7 +69,10 @@ $ldap_use = false;
 $ldap_debug = false;
 $ldap_uri = 'ldap://domaincontroller.example.com';
 $ldap_basedn = 'OU=Users,DC=example,DC=com';
-$ldap_binddn = 'GROUP\lookupuser';
+$ldap_binddn = 'GROUP\lookupuser'; //Also lookupuser@example.com is possible
 $ldap_bindpw = 'some_password';
 $ldap_user_attribute = 'sAMAccountName';
+$ldap_group_attribute   = 'CN=PowerAdmin,OU=Groups,DC=example,DC=com';// Group attribute (membership) to search for
 $ldap_proto = 3;
+$ldap_auto_register     = 1; //Auto registratior upon successful LDAP authentication
+$default_perm_templ     = 2; //Default permission template assigned to auto registered users
